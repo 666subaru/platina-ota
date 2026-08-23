@@ -1,3 +1,19 @@
+Project Infinity-X 3.12-r3 — 23.08.2026
+========================================
+
+DÜZELTMELER
+- 4K video seçildiğinde kayıt başlamıyor, kamera uygulaması kendini
+  kapatıyordu. Sebep: media_codecs.xml, H.264 kodlayıcı için 4K
+  (3840x2160) desteklediğini ilan ediyordu; oysa cihazın kendi performans
+  ölçümlerinde H.264 için en yüksek değer 1920x1080. Sürücü isteği
+  reddediyor, kayıt kurulamıyordu.
+  (msm_venc_s_fmt: session not supported)
+  Çözüm: H.264 sınırı gerçek değere çekildi (1920x1088). H.265 (HEVC)
+  4K desteğine dokunulmadı; onun ölçümü mevcut.
+
+- Changelog artık cihazın kendi deposundan okunuyor, bu sayfa görünür oldu.
+
+
 Project Infinity-X 3.12-r2 — 23.08.2026
 ========================================
 

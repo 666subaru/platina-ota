@@ -1,3 +1,17 @@
+Project Infinity-X 3.12-r4 — 23.08.2026
+========================================
+
+DÜZELTME
+- Kamerada 4K ve QHD seçenekleri kaldırıldı. Bu cihazın donanımı H.264
+  ile en fazla 1080p kodlayabiliyor; 4K veya QHD seçildiğinde kayıt
+  başlamıyor ve kamera uygulaması kapanıyordu.
+  (CXCP: IllegalArgumentException: size was not supported)
+  r3'te kodlayıcı sınırı düzeltilmişti ama seçenek listesi ayrı bir
+  dosyadan (media_profiles_vendor.xml) geliyordu; oradaki 2160p, qhd,
+  2k ve 4kdci profilleri de kaldırıldı.
+  Artık en yüksek video kalitesi 1080p.
+
+
 Project Infinity-X 3.12-r3 — 23.08.2026
 ========================================
 

@@ -6,7 +6,8 @@
       "md5": "aebe700ff8999e5aab0902d5ec2cc3ef",
       "size": 1861981332,
       "download": "https://github.com/666subaru/platina-ota/releases/download/v3.12-20260823-r2/Project_Infinity-X-3.12-platina-23.08.2026-r2-GAPPS-UNOFFICIAL.zip",
-      "version": "3.12-r2"
+      "version": "3.12-r2",
+      "romtype": "UNOFFICIAL"
     }
   ]
 }

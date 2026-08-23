@@ -1,0 +1,31 @@
+Project Infinity-X 3.12-r2 — 23.08.2026
+========================================
+
+DÜZELTME
+- Video kaydında cihazın tamamen donup yeniden başlaması giderildi.
+  Sebep: CONFIG_CFI_CLANG açıkken, Venus video kodlayıcısının HFI
+  arayüzündeki fonksiyon işaretçisi tip uyuşmazlığı ölümcül çekirdek
+  paniğine dönüşüyordu.
+  (kernel_panic,cfi_failure_hard — hfi_*_session_get_seq_hdr)
+  Çözüm: platina-fix.config ile CFI devre dışı bırakıldı.
+
+BİLİNEN SORUNLAR
+- Nadiren, cihaz boştayken çekirdek paniği görülebilir.
+  memlat izleyicisi derin uykudaki çekirdeklere IPI gönderirken
+  zaman aşımına uğruyor. İnceleniyor.
+
+
+Project Infinity-X 3.12 — 23.08.2026
+=====================================
+
+İlk sürüm. Kaynaktan derlendi.
+
+- Android 16 (SDK 36), güvenlik yaması 2026-08-01
+- Google uygulamaları dahil
+- LineageOS 23.2 tabanı, AOSP android-16.0.0_r4
+- Kernel 4.19 (lineage-23.2-ksu)
+
+ÖNCEKİ SİSTEME GÖRE
+- Güvenlik yaması 2025-05-05 → 2026-08-01 (15 ay ileri)
+- Android 15 → 16
+- OTA güncelleme desteği eklendi

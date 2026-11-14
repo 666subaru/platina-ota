@@ -1,0 +1,49 @@
+diff --git a/Android.bp b/Android.bp
+index b99af5c..377caa7 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -8975,32 +8975,6 @@ cc_prebuilt_library_shared {
+     soc_specific: true,
+ }
+ 
+-cc_prebuilt_library_shared {
+-    name: "libprotobuf-cpp-full-21.7",
+-    owner: "xiaomi",
+-    strip: {
+-        none: true,
+-    },
+-    target: {
+-        android_arm64: {
+-            srcs: [
+-                "proprietary/vendor/lib64/libprotobuf-cpp-full-21.7.so",
+-            ],
+-            shared_libs: [
+-                "libz",
+-                "liblog",
+-                "libc++",
+-                "libc",
+-                "libm",
+-                "libdl",
+-            ],
+-        },
+-    },
+-    compile_multilib: "64",
+-    prefer: true,
+-    soc_specific: true,
+-}
+-
+ cc_prebuilt_library_shared {
+     name: "libqcc_file_agent",
+     owner: "xiaomi",
+diff --git a/sdm660-common-vendor.mk b/sdm660-common-vendor.mk
+index bdd9e97..8474e04 100644
+--- a/sdm660-common-vendor.mk
++++ b/sdm660-common-vendor.mk
+@@ -361,7 +361,6 @@ PRODUCT_PACKAGES += \
+     libpdmapper \
+     libpdnotifier \
+     libperipheral_client \
+-    libprotobuf-cpp-full-21.7 \
+     libqcc_file_agent \
+     libqcmaputils \
+     libqcrilFramework \

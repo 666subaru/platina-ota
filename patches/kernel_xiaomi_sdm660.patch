@@ -1,0 +1,36 @@
+diff --git a/arch/arm64/configs/vendor/xiaomi/platina-fix.config b/arch/arm64/configs/vendor/xiaomi/platina-fix.config
+new file mode 100644
+index 000000000000..b709b85d009c
+--- /dev/null
++++ b/arch/arm64/configs/vendor/xiaomi/platina-fix.config
+@@ -0,0 +1,15 @@
++# platina-fix.config
++# En son uygulanan fragment - onceki fragmentlerin ayarlarini ezer.
++#
++# CFI (Control Flow Integrity) KAPATILDI.
++# Sebep: vendor'in Venus video kodlayici kodunda fonksiyon isaretcisi tip
++# uyusmazligi var. CFI acikken bu ihlal PANIK uretiyor ve video kaydinda
++# telefon tamamen donup yeniden basliyor.
++#   ro.boot.bootreason = kernel_panic,cfi_failure_hard,
++#                        hfi_*_session_get_seq_hdr
++# CONFIG_CFI_PERMISSIVE kapali oldugu icin ihlal uyari degil olumcul.
++# Bakimcinin kendi yapilandirmasi sdm660-common.config'i kullanmiyor,
++# dolayisiyla onun build'lerinde CFI zaten kapali.
++# CONFIG_CFI_CLANG is not set
++# CONFIG_CFI_CLANG_SHADOW is not set
++# CONFIG_CFI is not set
+diff --git a/scripts/extract-cert.c b/scripts/extract-cert.c
+index 68f73787d761..e03f76144a6a 100644
+--- a/scripts/extract-cert.c
++++ b/scripts/extract-cert.c
+@@ -121,8 +121,8 @@ int main(int argc, char **argv)
+ 		fclose(f);
+ 		exit(0);
+ 	} else if (!strncmp(cert_src, "pkcs11:", 7)) {
+-#ifdef OPENSSL_IS_BORINGSSL
+-		ERR(1, "BoringSSL does not support extracting from PKCS#11");
++#if defined(OPENSSL_IS_BORINGSSL) || defined(OPENSSL_NO_ENGINE)
++		ERR(1, "PKCS#11 extraction not supported (BoringSSL or OpenSSL without ENGINE)");
+ 		exit(1);
+ #else
+ 		ENGINE *e;

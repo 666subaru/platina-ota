@@ -1,0 +1,17 @@
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 437973d..73d8665 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -28,7 +28,11 @@ TARGET_SCREEN_DENSITY := 440
+ TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
+ 
+ # Kernel
+-TARGET_KERNEL_CONFIG := platina_defconfig
++TARGET_KERNEL_CONFIG := \
++    vendor/sdm660-perf_defconfig \
++    vendor/xiaomi/sdm660-common.config \
++    vendor/xiaomi/platina.config \
++    vendor/xiaomi/platina-fix.config
+ 
+ # Partitions
+ BOARD_SUPER_PARTITION_SYSTEM_DEVICE_SIZE := 3221225472

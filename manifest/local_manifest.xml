@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="sabarop" fetch="https://github.com/sabarop/" />
+
+  <!-- Device -->
+  <project path="device/xiaomi/platina"
+           name="android_device_xiaomi_platina"
+           remote="sabarop" revision="16.2" />
+  <project path="device/xiaomi/sdm660-common"
+           name="android_device_xiaomi_sdm660-common"
+           remote="sabarop" revision="16.2-dynamic-pixel" />
+
+  <!-- Vendor blobs -->
+  <project path="vendor/xiaomi/platina"
+           name="android_vendor_xiaomi_platina"
+           remote="sabarop" revision="16" />
+  <project path="vendor/xiaomi/sdm660-common"
+           name="android_vendor_xiaomi_sdm660-common"
+           remote="sabarop" revision="16-Inf" />
+
+  <!-- Kernel (4.19) - dal dogrulanacak, ilk derlemede netlesir -->
+  <project path="kernel/xiaomi/sdm660"
+           name="kernel_xiaomi_sdm660"
+           remote="sabarop" revision="lineage-23.2-ksu" />
+  <remote name="los" fetch="https://github.com/LineageOS/" />
+
+  <!-- vendor Android.bp'lerin istedigi namespace; Infinity-X manifest'inde yok -->
+  <project path="hardware/xiaomi"
+           name="android_hardware_xiaomi"
+           remote="los" revision="lineage-23.2" />
+
+  <!-- 14 Kas 2026: LineageOS lineage-23.2 dalina 10 Kas'ta gelen 23 commit (Wear OS backport)
+       AOSP 25Q4 CellBroadcastService'te olmayan CellBroadcastMetrics sabitlerini istiyor -> derleme hatasi.
+       r4'teki commit'e sabitlendi. Upstream duzelince bu satiri kaldir. -->
+  <extend-project name="LineageOS/android_packages_apps_CellBroadcastReceiver"
+                  revision="6ea8f37467f03399cff964d47f993b18b220706c" />
+</manifest>

@@ -1,3 +1,30 @@
+Project Infinity-X 3.12-r5 — 14.11.2026
+========================================
+
+GÜNCELLEME
+- Güvenlik yaması: 2026-09-01 (önceki: 2026-08-01)
+- Infinity-X v3.12 kaynağı Eylül sürümüne güncellendi (QPR2):
+  · Material 3 Expressive arayüz
+  · Ekran kapalıyken saat/bildirim (ambient AOD)
+  · Klavye titreşimi açık
+  · Uygulama klonlama (Ayarlar > Uygulamalar)
+  · Şarj atlatma (bypass charging) desteği
+  · Yüz tanıma altyapısı AOSPA'nınkiyle değiştirildi
+  · SystemUI ve animasyon performans iyileştirmeleri
+- Önceki düzeltmelerin hepsi korunuyor (video kaydı donması, 4K/QHD
+  seçenekleri, H.264 1080p sınırı).
+
+KURMADAN ÖNCE
+- Şarj en az %50 olsun, Wi-Fi'ye bağlı olsun (paket 1,86 GB).
+- Kurulum ~10-15 dakika sürer, telefon kendi kendine yeniden başlar.
+  Bu sırada kapatmayın.
+- Veriler silinmez.
+
+SORUN OLURSA
+- Açılmazsa veya açılışta takılırsa: Güç + Ses Açma ile TWRP'ye girip
+  önceki sürümün (r4) zip'ini kurun; veriler yine silinmez.
+
+
 Project Infinity-X 3.12-r4 — 23.08.2026
 ========================================
 
